@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery - DPBS BCA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1 class="logo">DPBS COLLEGE</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="contact.html">Contact</a>
+        <a class="active" href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<section class="page">
+    <h2 class="gradient-text">Photo Gallery</h2>
+    <p style="text-align:center;">Photos loaded automatically from folder</p>
+
+    <div id="gallery" class="gallery-adv"></div>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <span id="closeBtn">&times;</span>
+    <img id="popupImg">
+</div>
+
+<footer>© 2025 DPBS BCA</footer>
+
+<script>
+// FINAL WORKING AUTO GALLERY — GUARANTEED
+async function loadImages() {
+    try {
+        let response = await fetch("images/"); // folder ko read karna
+        let text = await response.text();
+
+        // extract filenames
+        let files = [...text.matchAll(/href="([^"]+\.(jpg|jpeg|png|webp))"/gi)];
+
+        let gallery = document.getElementById("gallery");
+
+        files.forEach(file => {
+            let fileName = file[1];
+            let img = document.createElement("img");
+            img.src = "images/" + fileName;
+            gallery.appendChild(img);
+
+            img.onclick = () => {
+                document.getElementById("popup").style.display = "flex";
+                document.getElementById("popupImg").src = img.src;
+            };
+        });
+    } catch (e) {
+        alert("⚠ Browser local files ko auto-read block kar raha hai.\nWebsite ko GitHub ya Live Server par chalao.");
+    }
+}
+loadImages();
+
+// Close popup
+document.getElementById("closeBtn").onclick = () =>
+    document.getElementById("popup").style.display = "none";
+</script>
+
+</body>
+</html>

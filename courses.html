@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BCA Courses - DPBS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+function performSearch() {
+    let query = document.querySelector(".top-search input").value.toLowerCase();
+    if (!query) {
+        alert("Please type something to search!");
+        return;
+    }
+
+    let content = document.body.innerText.toLowerCase();
+
+    if (content.includes(query)) {
+        alert("🔍 Result found for: " + query);
+        highlightText(query);
+    } else {
+        alert("❌ No results found!");
+    }
+}
+
+function highlightText(word) {
+    let bodyHtml = document.body.innerHTML;
+    let regex = new RegExp(word, "gi");
+    document.body.innerHTML = bodyHtml.replace(regex, match => `<mark style="background:yellow;color:black;padding:2px;border-radius:3px;">${match}</mark>`);
+}
+
+document.querySelector(".top-search button").addEventListener("click", performSearch);
+</script>
+
+<body>
+<!-- TOP SEARCH BAR -->
+<div class="top-search">
+    <input type="text" placeholder="Search anything..." />
+    <button>Search</button>
+</div>
+
+<header>
+    <h1 class="logo">DPBS COLLEGE</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="courses.html">Courses</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<section class="page">
+    <h2 class="gradient-text">BCA Course Structure</h2>
+
+    <p>
+        The Bachelor of Computer Applications (BCA) syllabus is divided into six semesters over three years. 
+        Subjects may vary from university to university, but the core structure remains consistent.
+    </p>
+
+    <h3>📘 General BCA Semester-wise Syllabus</h3>
+
+    <h2 class="gradient-text">Year 1</h2>
+    <h3>Semester I (Fundamentals)</h3>
+    <ul>
+        <li>Creative English / Business Communication</li>
+        <li>Foundational Mathematics / Mathematics I</li>
+        <li>Digital Computer Fundamentals / Fundamentals of Computers</li>
+        <li>Introduction to Programming Using C / C Programming</li>
+        <li>Statistics I for BCA</li>
+        <li><strong>Labs:</strong> C Programming Lab, PC Software Lab / Office Automation Lab</li>
+    </ul>
+
+    <h3>Semester II (Core Development)</h3>
+    <ul>
+        <li>Communicative English / Professional English</li>
+        <li>Basic Discrete Mathematics / Mathematics II</li>
+        <li>Operating Systems Concepts</li>
+        <li>Data Structures</li>
+        <li>Computer Organization & Assembly Language Programming</li>
+        <li><strong>Labs:</strong> Data Structures Lab, Visual Programming Lab / C Lab</li>
+    </ul>
+
+    <br>
+
+    <h2 class="gradient-text">Year 2</h2>
+    <h3>Semester III (Advanced Programming + DBMS)</h3>
+    <ul>
+        <li>Interpersonal Communication</li>
+        <li>Financial Accounting / Financial Management</li>
+        <li>Software Engineering</li>
+        <li>Database Management Systems (DBMS)</li>
+        <li>Object-Oriented Programming Using C++</li>
+        <li><strong>Labs:</strong> C++ Lab, DBMS/Oracle Lab</li>
+    </ul>
+
+    <h3>Semester IV (Networking + Java + Web)</h3>
+    <ul>
+        <li>Computer Networks</li>
+        <li>Programming in Java / OOP Technologies</li>
+        <li>Introduction to Algorithm Design</li>
+        <li>Web Designing / Web Technology</li>
+        <li>Statistical Techniques</li>
+        <li><strong>Labs:</strong> Java Lab, Web Technology Lab, Algorithm Design Lab</li>
+    </ul>
+
+    <br>
+
+    <h2 class="gradient-text">Year 3</h2>
+    <h3>Semester V (Industry Skills)</h3>
+    <ul>
+        <li>Unix Programming / Network Programming & Administration</li>
+        <li>User Interface Design</li>
+        <li>Graphics & Animation</li>
+        <li>Python Programming</li>
+        <li>Business Intelligence</li>
+        <li><strong>Labs:</strong> Unix Lab, Web Designing Project, Python Lab</li>
+    </ul>
+
+    <h3>Semester VI (Project + Emerging Tech)</h3>
+    <ul>
+        <li>Design & Analysis of Algorithms</li>
+        <li>Client-Server Computing</li>
+        <li>Cloud Computing</li>
+        <li>Multimedia Applications</li>
+        <li>E-Commerce</li>
+        <li><strong>Major Project</strong></li>
+    </ul>
+
+    <br>
+    <h3>🔗 Official Syllabus (Recommended)</h3>
+    <p>For university-specific syllabus (like CCSU), visit the official website.</p>
+
+    <a href="https://www.gngroup.org/asset/pdf/syllabus/management/BCA.pdf" 
+       target="_blank" style="color:yellow; font-size:20px; text-decoration:none;">
+       📘 Download Full BCA Syllabus PDF
+    </a>
+
+</section>
+
+<footer>© 2025 DPBS BCA</footer>
+</body>
+</html>
