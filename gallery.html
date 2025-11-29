@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery - DPBS BCA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1 class="logo">DPBS COLLEGE</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="faculty.html">Faculty</a>
+        <a href="contact.html">Contact</a>
+        <a class="active" href="gallery.html">Gallery</a>
+    </nav>
+</header>
+
+<section class="page">
+    <h2 class="gradient-text">Photo Gallery</h2>
+    <p style="text-align:center;">Tap any photo to view full screen</p>
+
+    <!-- 🔥 FINAL GALLERY IMAGES -->
+    <div class="gallery-adv">
+
+        <img src="images/DSC_4300.JPG">
+        <img src="images/DSC_4216.JPG">
+        <img src="images/DSC_4225.JPG">
+        <img src="images/DSC_4238.JPG">
+        <img src="images/DSC_4241.JPG">
+        <img src="images/DSC_4251.JPG">
+        <img src="images/DSC_4252.JPG">
+        <img src="images/DSC_4255.JPG">
+        <img src="images/DSC_4287.JPG">
+        <img src="images/DSC_4294.JPG">
+        <img src="images/DSC_4295.JPG">
+        <img src="images/DSC_4296.JPG">
+        <img src="images/DSC_4298.JPG">
+        <img src="images/DSC_4212.JPG">
+        <img src="images/DSC_4301.JPG">
+        <img src="images/DSC_4302.JPG">
+        <img src="images/DSC_4304.JPG">
+        <img src="images/DSC_4305.JPG">
+        <img src="images/DSC_4306 (1).JPG">
+        <img src="images/DSC_4306.JPG">
+        <img src="images/DSC_4307.JPG">
+        <img src="images/DSC_4308.JPG">
+        <img src="images/DSC_4311.JPG">
+        <img src="images/DSC_4317.JPG">
+
+        <!-- Extra custom images -->
+        <img src="images/p1.jpg">
+        <img src="images/p2.jpg">
+        <img src="images/p3.jpg">
+        <img src="images/p4.jpg">
+        <img src="images/p5.jpg">
+
+    </div>
+</section>
+
+<!-- 🔥 POPUP FULLSCREEN VIEW -->
+<div id="popup" class="popup">
+    <span id="closeBtn">&times;</span>
+    <img id="popupImg">
+    <div class="nav-btn left" id="prevBtn">&#10094;</div>
+    <div class="nav-btn right" id="nextBtn">&#10095;</div>
+</div>
+
+<footer>© 2025 DPBS BCA</footer>
+
+<script>
+// Load images into popup viewer
+let images = Array.from(document.querySelectorAll(".gallery-adv img"));
+let popup = document.getElementById("popup");
+let popupImg = document.getElementById("popupImg");
+let currentIndex = 0;
+
+images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+        popup.style.display = "flex";
+        popupImg.src = img.src;
+        currentIndex = index;
+    });
+});
+
+document.getElementById("closeBtn").onclick = () =>
+    popup.style.display = "none";
+
+document.getElementById("nextBtn").onclick = () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    popupImg.src = images[currentIndex].src;
+};
+
+document.getElementById("prevBtn").onclick = () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    popupImg.src = images[currentIndex].src;
+};
+
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") popup.style.display = "none";
+});
+</script>
+
+</body>
+</html>
